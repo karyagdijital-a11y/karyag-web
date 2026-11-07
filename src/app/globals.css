@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Kurumsal Font Aileleri */
+  --font-display: var(--font-roboto), sans-serif;
+  --font-sans: var(--font-montserrat), sans-serif;
+
+  /* 1. Kilis Yeşili (Ana Kurumsal Renk - RAL 6010) */
+  --color-karyag-green: #3A6D33;
+  --color-karyag-green-dark: #2A4B26;
+  --color-karyag-green-light: #EBF3EA;
+
+  /* 2. Altın Damla (Vurgu & Ayırıcı Çizgi - RAL 1036) */
+  --color-karyag-gold: #D2AF43;
+  --color-karyag-gold-light: #F9F4E3;
+
+  /* 3. Çelik Gri (Ana Logotype & Gövde - RAL 7011) */
+  --color-karyag-steel: #3D454A;
+  --color-karyag-steel-dark: #23282B;
+  --color-karyag-steel-muted: #637075;
+  --color-karyag-bg: #F8F9F7;
+}
+
+body {
+  background-color: #FFFFFF;
+  color: #3D454A;
+  font-family: var(--font-montserrat), sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Başlıklar için varsayılan Roboto Bold/Black stili */
+h1, h2, h3, .font-heading {
+  font-family: var(--font-roboto), sans-serif;
+}
