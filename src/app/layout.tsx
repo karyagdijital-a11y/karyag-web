@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto, Montserrat } from "next/font/google";
+import { Roboto, Montserrat, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -19,13 +19,21 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
+const playfair = Playfair_Display({
+  subsets: ["latin", "latin-ext"],
+  weight: ["500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: {
-    default: "KARYAĞ Gıda San. ve Tic. A.Ş. | Gıda Tarım Sanayi",
+    default: "KARYAĞ | Toprağın Bereketinden Gelen Asırlık Miras",
     template: "%s | KARYAĞ Gıda Tarım Sanayi",
   },
   description:
-    "Zeytinyağı üretimi, pirina değerlendirmesi ve ileri rafinasyon süreçlerini sıfır atık prensibiyle tek çatı altında birleştiren B2B entegre sanayi üssü. Polateli / Kilis.",
+    "Kilis'in kadim zeytin mirasını doğaya saygılı, sıfır atık felsefesiyle geleceğe taşıyan KARYAĞ, KADİVA ve KAROLİVA marka ailesi.",
 };
 
 export default function RootLayout({
@@ -34,8 +42,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr" className={`${roboto.variable} ${montserrat.variable}`}>
-      <body className="min-h-screen flex flex-col bg-white text-karyag-steel selection:bg-karyag-green selection:text-white" suppressHydrationWarning>
+    <html
+      lang="tr"
+      className={`${roboto.variable} ${montserrat.variable} ${playfair.variable}`}
+    >
+      <body
+        className="min-h-screen flex flex-col bg-[#FCFBFA] text-karyag-steel selection:bg-karyag-gold/30 selection:text-karyag-steel-dark"
+        suppressHydrationWarning
+      >
         <Header />
         <StickyActionDock />
         <main className="flex-grow">{children}</main>

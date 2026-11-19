@@ -1,181 +1,165 @@
-import { MapPin, Mail, Phone, Send, ShieldCheck, Building2 } from "lucide-react";
+import Link from "next/link";
+import type { Metadata } from "next";
+import OliveDropIcon from "@/components/ui/OliveDropIcon";
+import {
+  MapPin,
+  Mail,
+  Phone,
+  Clock,
+  ChevronRight,
+} from "lucide-react";
+import ContactForm from "@/components/contact/ContactForm";
+
+export const metadata: Metadata = {
+  title: "İletişim",
+  description:
+    "KARYAĞ Gıda San. ve Tic. A.Ş. Polateli / Kilis üretim yuvamızla iletişime geçin.",
+};
 
 export default function IletisimPage() {
   return (
-    <div className="bg-karyag-bg">
-      <section className="bg-karyag-steel-dark text-white py-16 px-4 sm:px-8 border-b-4 border-karyag-gold">
-        <div className="max-w-7xl mx-auto">
-          <span className="text-xs font-bold uppercase tracking-widest text-karyag-gold">
-            B2B SATIŞ, İHRACAT & FABRİKA İLETİŞİM
-          </span>
-          <h1 className="font-display font-black text-4xl sm:text-5xl mt-3">
-            İLETİŞİM VE KURUMSAL TEDARİK FORMU
-          </h1>
-          <p className="text-gray-300 text-sm sm:text-base max-w-2xl mt-3">
-            Dökme zeytinyağı, rafine zeytinyağı ve pirina yağı talepleriniz, yıllık tedarik sözleşmeleri ve numune istekleriniz için doğrudan satış masamızla iletişime geçin.
-          </p>
-        </div>
-      </section>
+    <div className="bg-karyag-ivory min-h-screen">
+      {/* 1. FLU EDİTORYAL BANNER */}
+      <section className="relative overflow-hidden border-b border-karyag-gold/30 py-20 sm:py-28 px-4 sm:px-8 bg-[#F6F3EC]">
+        <img
+          src="https://images.pexels.com/photos/33783/olive-oil-salad-dressing-cooking-olive.jpg?auto=compress&cs=tinysrgb&w=1600"
+          alt="KARYAĞ İletişim"
+          className="absolute inset-0 w-full h-full object-cover blur-[4px] scale-110 opacity-40 select-none pointer-events-none"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FCFBFA]/96 via-[#FCFBFA]/84 to-[#F6F3EC]/50 pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#FCFBFA] to-transparent pointer-events-none" />
 
-      <section className="py-16 px-4 sm:px-8 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10">
-        {/* Sol İletişim Bilgileri */}
-        <div className="lg:col-span-5 space-y-6">
-          <div className="bg-white p-8 rounded-3xl border border-gray-200 shadow-xs space-y-6">
-            <div>
-              <span className="text-[11px] font-bold uppercase tracking-widest text-karyag-green">
-                MERKEZ & ENTEGRE ÜRETİM TESİSİ
-              </span>
-              <h2 className="font-display font-black text-2xl text-karyag-steel mt-1">
-                KARYAĞ GIDA SAN. ve TİC. A.Ş.
-              </h2>
-            </div>
-
-            <div className="space-y-4 text-xs text-karyag-steel">
-              <div className="flex items-start gap-3.5">
-                <div className="w-9 h-9 rounded-lg bg-karyag-green-light text-karyag-green flex items-center justify-center shrink-0">
-                  <MapPin className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="font-bold">Fabrika Adresi</div>
-                  <div className="text-karyag-steel-muted mt-0.5 leading-relaxed">
-                    Güldüzü / Yeşilpınar Mevkii, Polateli Üretim Tesisi, Polateli / KİLİS
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3.5">
-                <div className="w-9 h-9 rounded-lg bg-karyag-green-light text-karyag-green flex items-center justify-center shrink-0">
-                  <Mail className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="font-bold">Kurumsal E-Posta</div>
-                  <div className="text-karyag-steel-muted mt-0.5">
-                    info@karyag.com • satis@karyag.com
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3.5">
-                <div className="w-9 h-9 rounded-lg bg-karyag-green-light text-karyag-green flex items-center justify-center shrink-0">
-                  <Phone className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="font-bold">B2B Toptan Satış & Santral</div>
-                  <div className="text-karyag-steel-muted mt-0.5">
-                    +90 (348) 000 00 00
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div className="relative z-10 max-w-[1380px] mx-auto">
+          <div className="inline-flex items-center gap-2 text-xs text-karyag-steel-muted mb-6 bg-white/75 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-karyag-gold/25">
+            <Link href="/" className="hover:text-karyag-gold-dark transition">
+              Anasayfa
+            </Link>
+            <ChevronRight className="w-3.5 h-3.5 text-karyag-gold" />
+            <span className="text-karyag-steel-dark font-semibold">
+              İletişim
+            </span>
           </div>
 
-          <div className="bg-karyag-steel-dark text-white p-8 rounded-3xl border border-karyag-gold/30 space-y-3">
-            <div className="flex items-center gap-2 text-karyag-gold text-xs font-bold uppercase tracking-wider">
-              <ShieldCheck className="w-4 h-4" />
-              <span>HIZLI TEKLİF PROSEDÜRÜ</span>
+          <div className="max-w-3xl space-y-5">
+            <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.25em] uppercase text-karyag-gold-dark">
+              <OliveDropIcon className="w-3.5 h-3.5 text-karyag-gold" />
+              <span>BİZİMLE TANIŞIN</span>
             </div>
-            <p className="text-xs text-gray-300 leading-relaxed">
-              Gönderdiğiniz B2B tedarik talepleri doğrudan yönetim ve endüstriyel satış departmanımıza düşer. Talep ettiğiniz ürün spekti ve tonaja göre güncel fiyat teklifimiz aynı gün içinde iletilir.
+
+            <h1 className="font-serif font-semibold text-4xl sm:text-5xl lg:text-[54px] text-karyag-steel-dark leading-[1.12]">
+              Gönül Bağıyla Kurulan{" "}
+              <span className="italic text-karyag-gold-dark font-medium block sm:inline">
+                Kalıcı İş Birlikleri
+              </span>
+            </h1>
+
+            <p className="text-base sm:text-lg text-karyag-steel/85 leading-relaxed max-w-2xl">
+              Markalarımız, üretim yolculuğumuz, numune veya iş birliği
+              talepleriniz için kapımız her zaman açık. Size en kısa sürede
+              dönüş yapalım.
             </p>
           </div>
         </div>
+      </section>
 
-        {/* Sağ B2B Teklif Formu */}
-        <div className="lg:col-span-7 bg-white p-8 sm:p-10 rounded-3xl border border-gray-200 shadow-sm">
-          <h3 className="font-display font-black text-2xl text-karyag-steel mb-6">
-            B2B DÖKME YAĞ & TEDARİK TALEP FORMU (RFQ)
-          </h3>
-          <form className="space-y-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {/* 2. İLETİŞİM BİLGİLERİ & FORM */}
+      <section className="py-16 sm:py-24 px-4 sm:px-8">
+        <div className="max-w-[1380px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          {/* Sol: İletişim Kartları */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="bg-white rounded-3xl p-8 border border-stone-200/80 shadow-2xs space-y-7">
               <div>
-                <label className="block text-xs font-bold text-karyag-steel mb-1.5">
-                  Firma Unvanı *
-                </label>
-                <input
-                  type="text"
-                  placeholder="Firma Adı"
-                  className="w-full text-xs border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-karyag-green"
-                />
+                <span className="text-[10px] font-bold tracking-[0.22em] uppercase text-karyag-gold-dark">
+                  ÜRETİM YUVAMIZ & MERKEZ
+                </span>
+                <h2 className="font-serif font-semibold text-2xl text-karyag-steel-dark mt-1.5">
+                  KARYAĞ Gıda San. ve Tic. A.Ş.
+                </h2>
               </div>
-              <div>
-                <label className="block text-xs font-bold text-karyag-steel mb-1.5">
-                  Yetkili Adı Soyadı & Görevi *
-                </label>
-                <input
-                  type="text"
-                  placeholder="Ad Soyad / Satınalma Md."
-                  className="w-full text-xs border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-karyag-green"
-                />
+
+              <div className="space-y-5 text-sm text-karyag-steel-muted">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-karyag-gold-light text-karyag-gold-dark flex items-center justify-center shrink-0">
+                    <MapPin className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold uppercase tracking-wider text-karyag-steel-dark">
+                      Adres
+                    </div>
+                    <p className="mt-1 leading-relaxed">
+                      Güldüzü / Yeşilpınar Mevkii, Polateli Organize Sanayi
+                      Bölgesi Yakını, Polateli / KİLİS
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-karyag-gold-light text-karyag-gold-dark flex items-center justify-center shrink-0">
+                    <Mail className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold uppercase tracking-wider text-karyag-steel-dark">
+                      E-posta
+                    </div>
+                    <p className="mt-1">info@karyag.com</p>
+                    <p>satis@karyag.com</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-karyag-gold-light text-karyag-gold-dark flex items-center justify-center shrink-0">
+                    <Phone className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold uppercase tracking-wider text-karyag-steel-dark">
+                      Web & Telefon
+                    </div>
+                    <p className="mt-1">www.karyag.com</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-karyag-green-light text-karyag-green flex items-center justify-center shrink-0">
+                    <Clock className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold uppercase tracking-wider text-karyag-steel-dark">
+                      Çalışma Saatlerimiz
+                    </div>
+                    <p className="mt-1">Pazartesi – Cumartesi • 08:30 – 18:00</p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs font-bold text-karyag-steel mb-1.5">
-                  Kurumsal E-Posta *
-                </label>
-                <input
-                  type="email"
-                  placeholder="isim@firma.com"
-                  className="w-full text-xs border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-karyag-green"
-                />
+            <div className="rounded-3xl bg-karyag-cream/85 p-7 border border-karyag-gold/30 space-y-2">
+              <div className="text-[10px] font-bold tracking-[0.22em] uppercase text-karyag-green">
+                HIZLI GERİ DÖNÜŞ SÖZÜMÜZ
               </div>
-              <div>
-                <label className="block text-xs font-bold text-karyag-steel mb-1.5">
-                  Telefon Numarası *
-                </label>
-                <input
-                  type="tel"
-                  placeholder="+90 (5xx) xxx xx xx"
-                  className="w-full text-xs border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-karyag-green"
-                />
-              </div>
+              <p className="font-serif italic text-base text-karyag-steel-dark leading-relaxed">
+                “İster bir aile sofrası, ister büyük bir tedarik yolculuğu olsun;
+                bize ulaşan her mesaj aynı özenle karşılanır.”
+              </p>
             </div>
+          </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs font-bold text-karyag-steel mb-1.5">
-                  Ürün Grubu
-                </label>
-                <select className="w-full text-xs border border-gray-300 rounded-xl px-4 py-3 bg-white focus:outline-none focus:border-karyag-green">
-                  <option>Dökme Natürel Sızma Zeytinyağı</option>
-                  <option>Rafine Zeytinyağı / Riviera</option>
-                  <option>Ham / Rafine Pirina Yağı</option>
-                  <option>KADİVA Natürel Seri</option>
-                  <option>KAROLİVA Endüstriyel Seri</option>
-                </select>
-              </div>
-              <div>
-                <label className="block text-xs font-bold text-karyag-steel mb-1.5">
-                  Sevkiyat Şekli & Tonaj
-                </label>
-                <select className="w-full text-xs border border-gray-300 rounded-xl px-4 py-3 bg-white focus:outline-none focus:border-karyag-green">
-                  <option>Paslanmaz Çelik Tanker (20-26 Ton)</option>
-                  <option>Flexitank 20&apos; FCL (İhracat)</option>
-                  <option>IBC Tank (1.000 L) / Çelik Varil</option>
-                </select>
-              </div>
-            </div>
-
+          {/* Sağ: İletişim Formu */}
+          <div className="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-12 border border-stone-200/80 shadow-2xs space-y-6">
             <div>
-              <label className="block text-xs font-bold text-karyag-steel mb-1.5">
-                Talep Detayları (Asitlik Kriteri, Teslimat Şehri/Ülkesi)
-              </label>
-              <textarea
-                rows={4}
-                placeholder="Aradığınız teknik spesifikasyonları ve yaklaşık tonaj bilgisini yazınız..."
-                className="w-full text-xs border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-karyag-green"
-              />
+              <span className="text-[10px] font-bold tracking-[0.22em] uppercase text-karyag-gold-dark">
+                MESAJ BIRAKIN
+              </span>
+              <h2 className="font-serif font-semibold text-3xl text-karyag-steel-dark mt-1">
+                Size Nasıl Yardımcı Olabiliriz?
+              </h2>
+              <p className="text-sm text-karyag-steel-muted mt-1.5">
+                Formu doldurarak talebinizi doğrudan ilgili departmanımıza
+                iletebilirsiniz.
+              </p>
             </div>
 
-            <button
-              type="button"
-              className="w-full inline-flex items-center justify-center gap-2 bg-karyag-green hover:bg-karyag-green-dark text-white font-bold text-xs uppercase tracking-wider py-4 rounded-xl shadow-md transition"
-            >
-              <Send className="w-4 h-4 text-karyag-gold" />
-              <span>TEKLİF TALEBİNİ GÖNDER</span>
-            </button>
-          </form>
+            <ContactForm />
+          </div>
         </div>
       </section>
     </div>
