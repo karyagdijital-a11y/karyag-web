@@ -10,6 +10,8 @@ import {
 import OliveDropIcon from "@/components/ui/OliveDropIcon";
 import HeroVideoSlider from "@/components/home/HeroVideoSlider";
 import CircularStorySection from "@/components/home/CircularStorySection";
+import OriginStorySection from "@/components/home/OriginStorySection";
+import ExportMapSection from "@/components/export/ExportMapSection";
 
 const valuePillars = [
   {
@@ -80,10 +82,10 @@ const brandStories = [
 export default function HomePage() {
   return (
     <div className="bg-karyag-ivory">
-      {/* 1. PREMIUM VİDEO SLIDER */}
+      {/* 1. PREMIUM VİDEO & EDİTORYAL SLIDER */}
       <HeroVideoSlider />
 
-      {/* 2. SLAYT ALTI İKONLU & EFEKTLİ DEĞERLER BANDI */}
+      {/* 2. SLAYT ALTI İKONLU DEĞERLER BANDI */}
       <section className="relative z-20 -mt-10 px-4 sm:px-8">
         <div className="max-w-[1380px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {valuePillars.map((item) => {
@@ -121,33 +123,41 @@ export default function HomePage() {
       {/* 3. 4 AŞAMALI DÖNGÜSEL ÜRETİM HİKÂYESİ */}
       <CircularStorySection />
 
-      {/* 4. GERÇEK LOGOLU & MOCKUPLI ÜÇLÜ MARKA MİMARİSİ */}
-      <section className="py-24 px-4 sm:px-8 bg-white border-y border-stone-200/70">
+      {/* 4. KİLİS MENŞE HİKÂYESİ & MUTFAK KULLANIM REHBERİ */}
+      <OriginStorySection />
+
+      {/* 5. GERÇEK LOGOLU & MOCKUPLI ÜÇLÜ MARKA MİMARİSİ */}
+      <section className="py-24 px-4 sm:px-8 bg-karyag-ivory border-t border-stone-200/70">
         <div className="max-w-[1380px] mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-            <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.25em] uppercase text-karyag-gold-dark">
-              <OliveDropIcon className="w-3.5 h-3.5 text-karyag-gold" />
-              <span>MARKA AİLEMİZ</span>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+            <div className="space-y-3 max-w-2xl">
+              <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.25em] uppercase text-karyag-gold-dark">
+                <OliveDropIcon className="w-3.5 h-3.5 text-karyag-gold" />
+                <span>MARKA AİLEMİZ</span>
+              </div>
+              <h2 className="font-serif font-semibold text-3xl sm:text-5xl text-karyag-steel-dark">
+                Üç Marka,{" "}
+                <span className="italic text-karyag-gold-dark font-medium">
+                  Tek Bir Asırlık Sevda
+                </span>
+              </h2>
             </div>
-            <h2 className="font-serif font-semibold text-3xl sm:text-5xl text-karyag-steel-dark">
-              Üç Marka,{" "}
-              <span className="italic text-karyag-gold-dark font-medium">
-                Tek Bir Asırlık Sevda
-              </span>
-            </h2>
-            <p className="text-sm sm:text-base text-karyag-steel-muted leading-relaxed">
-              Her biri farklı bir dünyaya dokunan ama aynı toprağın bereketinden
-              ve saflığından beslenen üç özgün hikâye.
-            </p>
+
+            <Link
+              href="/urunler"
+              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-karyag-steel-dark hover:text-karyag-green border-b border-karyag-gold pb-1.5 w-fit transition group"
+            >
+              <span>Ambalaj Bazlı Kataloğu İncele</span>
+              <ArrowRight className="w-4 h-4 text-karyag-gold group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {brandStories.map((brand) => (
               <div
                 key={brand.name}
-                className={`group bg-karyag-ivory rounded-3xl overflow-hidden border border-stone-200/80 ${brand.accentBorder} shadow-xs hover:shadow-[0_24px_55px_-18px_rgba(30,35,38,0.14)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between`}
+                className={`group bg-white rounded-3xl overflow-hidden border border-stone-200/80 ${brand.accentBorder} shadow-xs hover:shadow-[0_24px_55px_-18px_rgba(30,35,38,0.14)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between`}
               >
-                {/* Üst 3D Ürün Mockup Vitrin Görseli */}
                 <div>
                   <div className="relative h-60 overflow-hidden bg-karyag-cream border-b border-stone-200/60">
                     <Image
@@ -164,9 +174,8 @@ export default function HomePage() {
                     </span>
                   </div>
 
-                  {/* Logo Kutusu & Hikâye */}
                   <div className="p-7 sm:p-8">
-                    <div className="bg-white rounded-2xl border border-stone-200/70 px-5 py-4 mb-5 flex items-center justify-center h-24">
+                    <div className="bg-karyag-ivory rounded-2xl border border-stone-200/70 px-5 py-4 mb-5 flex items-center justify-center h-24">
                       <Image
                         src={brand.logo}
                         alt={`${brand.name} Resmi Logosu`}
@@ -201,7 +210,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. ZARİF BEYAZ-ALTIN İLETİŞİM & İŞ BİRLİĞİ DAVETİ */}
+      {/* 6. KÜRESEL İHRACAT HARİTASI */}
+      <ExportMapSection />
+
+      {/* 7. ZARİF İŞ BİRLİĞİ & PRIVATE LABEL DAVETİ */}
       <section className="py-20 px-4 sm:px-8 bg-karyag-ivory">
         <div className="max-w-[1380px] mx-auto rounded-3xl bg-white p-10 sm:p-14 border border-karyag-gold/35 shadow-[0_20px_60px_-20px_rgba(200,162,74,0.18)] flex flex-col lg:flex-row items-center justify-between gap-10 relative overflow-hidden">
           <div className="absolute -right-20 -top-20 w-72 h-72 rounded-full bg-karyag-gold-light blur-3xl pointer-events-none" />
@@ -215,8 +227,8 @@ export default function HomePage() {
               Toprağın Bereketini Birlikte Geleceğe Taşıyalım
             </h3>
             <p className="text-sm sm:text-base text-karyag-steel-muted leading-relaxed">
-              Markalarımız, üretim felsefemiz ve kurumsal iş birliklerimiz
-              hakkında detaylı bilgi almak için ekibimizle her zaman iletişime
+              Markalarımız, Private Label üretim çözümlerimiz veya uluslararası
+              ihracat talepleriniz için ekibimizle her zaman iletişime
               geçebilirsiniz.
             </p>
           </div>
@@ -230,10 +242,10 @@ export default function HomePage() {
               <ArrowRight className="w-4 h-4 text-karyag-gold-light group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
-              href="/kurumsal/hakkimizda"
+              href="/private-label"
               className="inline-flex items-center justify-center gap-2 bg-karyag-cream hover:bg-karyag-gold-light text-karyag-steel-dark font-semibold text-xs sm:text-sm uppercase tracking-wider px-7 py-4 rounded-full border border-karyag-gold/40 transition-all"
             >
-              <span>Kurumsal Dosyamız</span>
+              <span>Private Label & İhracat</span>
             </Link>
           </div>
         </div>

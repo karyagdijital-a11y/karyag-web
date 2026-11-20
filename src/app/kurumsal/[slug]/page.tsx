@@ -1,7 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import OliveDropIcon from "@/components/ui/OliveDropIcon";
 import {
   BookOpen,
   Compass,
@@ -15,6 +15,10 @@ import {
   ChevronRight,
   Quote,
 } from "lucide-react";
+import OliveDropIcon from "@/components/ui/OliveDropIcon";
+import CertificateGallery, {
+  type CertificateItem,
+} from "@/components/corporate/CertificateGallery";
 
 type CorporateSlug =
   | "hakkimizda"
@@ -60,7 +64,7 @@ type PageContent = {
   chapters: StoryChapter[];
   pillars: { title: string; desc: string }[];
   timeline?: { year: string; title: string; desc: string }[];
-  certificates?: { code: string; name: string; scope: string }[];
+  certificates?: CertificateItem[];
 };
 
 const corporateData: Record<CorporateSlug, PageContent> = {
@@ -69,8 +73,7 @@ const corporateData: Record<CorporateSlug, PageContent> = {
     title: "Toprağın Bereketine Adanmış",
     titleHighlight: "Köklü Bir Hikâye",
     lead: "Bazı hikâyeler fabrikaların duvarları arasında değil, güneşin yüzyıllardır ısıttığı kadim toprakların sessiz sabrında başlar. KARYAĞ, Kilis’in ölümsüz zeytin ağaçlarına duyulan bir vefanın adıdır.",
-    bannerImage:
-      "https://images.pexels.com/photos/33783/olive-oil-salad-dressing-cooking-olive.jpg?auto=compress&cs=tinysrgb&w=1600",
+    bannerImage: "/images/story/stage-1-hasat.jpg",
     bannerAlt: "Kilis zeytin ve zeytinyağı mirası",
     quote:
       "Zeytin ağacı acele etmez; yüzyılları köklerinde biriktirir, güneşi meyvesinde saklar ve kendisine saygı duyan ellere en saf altınını armağan eder.",
@@ -97,7 +100,7 @@ const corporateData: Record<CorporateSlug, PageContent> = {
         desc: "Kilis’in eşsiz ikliminde, binlerce yıllık zeytin geleneğiyle yoğrulmuş toprakların doğal zenginliği.",
       },
       {
-        title: "Aile Sıcaklığında Marka Mimari",
+        title: "Aile Sıcaklığında Marka Mimarisi",
         desc: "KARYAĞ çatısı altında sofradan profesyonel mutfağa uzanan, her biri özenle kurgulanmış üç güçlü kimlik.",
       },
       {
@@ -112,8 +115,7 @@ const corporateData: Record<CorporateSlug, PageContent> = {
     title: "Bugünün Bereketiyle",
     titleHighlight: "Yarını Beslemek",
     lead: "Geleceğe bırakılabilecek en kıymetli miras; bozulmamış bir doğa, güvenle anılan bir isim ve sofralara sağlıkla ulaşan saf bir berekettir.",
-    bannerImage:
-      "https://images.pexels.com/photos/1029615/pexels-photo-1029615.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    bannerImage: "/images/story/stage-2-sikim.jpg",
     bannerAlt: "Altın zeytinyağı ve gelecek vizyonu",
     quote:
       "Toprağa ne kadar incelikle yaklaşırsanız, yarınlar size o kadar cömert kapılar açar. Biz yalnızca bugünü üretmiyor, gelecek kuşakların nefes alacağı bir denge kuruyoruz.",
@@ -155,8 +157,7 @@ const corporateData: Record<CorporateSlug, PageContent> = {
     title: "Köklerimizden Geleceğe",
     titleHighlight: "Uzanan Yolculuk",
     lead: "Her büyük çınar, toprağa umutla bırakılan tek bir tohumla başlar. Bizim hikâyemiz de Kilis’in bereketine duyulan sarsılmaz bir inançla filizlendi.",
-    bannerImage:
-      "https://images.pexels.com/photos/33783/olive-oil-salad-dressing-cooking-olive.jpg?auto=compress&cs=tinysrgb&w=1600",
+    bannerImage: "/images/story/stage-1-hasat.jpg",
     bannerAlt: "Asırlık zeytin yolculuğu ve tarihçe",
     quote:
       "Geçmişin bilgeliğini sırtında taşımayan bir yapı, geleceğin rüzgârlarına dayanamaz. Köklerimiz ne kadar derindeyse, dallarımız gökyüzüne o kadar güvenle uzanır.",
@@ -220,8 +221,7 @@ const corporateData: Record<CorporateSlug, PageContent> = {
     title: "Saflığı ve Özeni Koruyan",
     titleHighlight: "Değişmez Sözümüz",
     lead: "Bizim için kalite, laboratuvar kâğıtlarındaki rakamlardan ibaret değildir; zeytin bahçesindeki ilk güneş ışığından sofradaki son damlaya kadar süren bir vicdan ve ustalık meselesidir.",
-    bannerImage:
-      "https://images.pexels.com/photos/257700/pexels-photo-257700.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    bannerImage: "/images/story/stage-3-berraklik.jpg",
     bannerAlt: "Kusursuz saflık ve kalite kontrol",
     quote:
       "Doğanın kusursuzca yarattığı bir meyveye yapabileceğiniz en büyük iyilik, ona kendi saflığını koruyacak kadar saygılı ve titiz davranmaktır.",
@@ -263,8 +263,7 @@ const corporateData: Record<CorporateSlug, PageContent> = {
     title: "Doğayla Uyumlu",
     titleHighlight: "Modern Üretim Yuvamız",
     lead: "Polateli’nin dingin doğası içinde konumlanan tesisimiz; soğuk bir fabrika binasından öte, toprağın bereketini modern mühendislik zarafetiyle buluşturan yaşayan bir üretim merkezidir.",
-    bannerImage:
-      "https://images.pexels.com/photos/257700/pexels-photo-257700.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    bannerImage: "/images/story/stage-3-berraklik.jpg",
     bannerAlt: "Modern ve doğa dostu üretim tesisi",
     quote:
       "Teknoloji doğanın önüne geçmek için değil; doğanın sunduğu mucizeyi en saf, en temiz ve en zarif haliyle korumak için vardır.",
@@ -306,8 +305,7 @@ const corporateData: Record<CorporateSlug, PageContent> = {
     title: "Uluslararası Standartlarda",
     titleHighlight: "Tescilli Güven",
     lead: "Sözümüzü yalnızca gönül bağıyla değil, dünyanın kabul ettiği bağımsız denetim ve kalite belgeleriyle de mühürlüyoruz.",
-    bannerImage:
-      "https://images.pexels.com/photos/1029615/pexels-photo-1029615.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    bannerImage: "/images/story/stage-2-sikim.jpg",
     bannerAlt: "Uluslararası kalite ve güven sertifikaları",
     quote:
       "Gerçek güven, görünmeyen anlarda bile en yüksek standarda sadık kalabilmekle kazanılır. Her belgemiz, bu sadakatin resmi bir nişanesidir.",
@@ -380,8 +378,7 @@ const corporateData: Record<CorporateSlug, PageContent> = {
     title: "Sıfır Atıkla",
     titleHighlight: "Doğaya Saygı",
     lead: "Doğanın sözlüğünde 'atık' diye bir kelime yoktur; yalnızca bir formdan diğerine geçen sonsuz bir yaşam döngüsü vardır. KARYAĞ, işte bu döngünün sadık bir parçasıdır.",
-    bannerImage:
-      "https://images.pexels.com/photos/33783/olive-oil-salad-dressing-cooking-olive.jpg?auto=compress&cs=tinysrgb&w=1600",
+    bannerImage: "/images/story/stage-4-sifir-atik.jpg",
     bannerAlt: "Sıfır atık ve doğaya saygılı sürdürülebilir üretim",
     quote:
       "Toprak bize cömertçe verirken hiçbir karşılık beklemez; bizim ona verebileceğimiz en güzel karşılık, tek bir zeytin tanesini bile ziyan etmeden yaşamı sürdürmektir.",
@@ -390,7 +387,7 @@ const corporateData: Record<CorporateSlug, PageContent> = {
       {
         heading: "Logomuzdaki Sonsuzluk İşaretinin Anlamı",
         body: [
-          "KARYAĞ’ın amblemindeki yeşil sonsuzluk çizgisi, yalnızca estetik bir sembol değil; toprağa verdiğimiz bir yeminidir. Zeytin ağacı nasıl ki yüzyıllar boyunca yeniden filizlenip meyve veriyorsa, biz de üretimimizin her adımını doğaya geri dönen kesintisiz bir halka olarak kurguladık.",
+          "KARYAĞ’ın amblemindeki yeşil sonsuzluk çizgisi, yalnızca estetik bir sembol değil; toprağa verdiğimiz bir yemindir. Zeytin ağacı nasıl ki yüzyıllar boyunca yeniden filizlenip meyve veriyorsa, biz de üretimimizin her adımını doğaya geri dönen kesintisiz bir halka olarak kurguladık.",
           "Zeytinyağı sıkımı tamamlandığında hikâye bizim için bitmez; aksine ikinci ve en anlamlı bölümü başlar. Sıkım sonrasında geriye kalan doğal posa ve zeytin çekirdeği, hiçbir kimyasal kirliliğe yol açmadan özenle değerlendirilir. Çekirdeğin özündeki doğal enerji, yüksek verimli ve çevre dostu biyokütle yakıtına dönüşerek yeniden ısıya ve hayata karışır.",
         ],
       },
@@ -418,6 +415,25 @@ const corporateData: Record<CorporateSlug, PageContent> = {
     ],
   },
 };
+
+const facilityPhotos = [
+  {
+    src: "/images/story/stage-1-hasat.jpg",
+    title: "Kilis Zeytin Havzası & Kabul",
+  },
+  {
+    src: "/images/story/stage-2-sikim.jpg",
+    title: "Kapalı Devre Kontinü Sıkım Hattı",
+  },
+  {
+    src: "/images/story/stage-3-berraklik.jpg",
+    title: "İleri Rafinasyon & Çelik Silolar",
+  },
+  {
+    src: "/images/story/stage-4-sifir-atik.jpg",
+    title: "Pirina Geri Kazanım & Biyokütle",
+  },
+];
 
 export function generateStaticParams() {
   return sidebarLinks.map((item) => ({ slug: item.slug }));
@@ -457,18 +473,14 @@ export default async function CorporateDetailPage({
     <div className="bg-karyag-ivory min-h-screen">
       {/* 1. FLU ARKA PLAN RESİMLİ, FERAH EDİTORYAL BANNER */}
       <section className="relative overflow-hidden border-b border-karyag-gold/30 py-20 sm:py-28 px-4 sm:px-8 bg-[#F6F3EC]">
-        {/* Flu Arka Plan Fotoğrafı */}
         <img
           src={content.bannerImage}
           alt={content.bannerAlt}
           className="absolute inset-0 w-full h-full object-cover blur-[4px] scale-110 opacity-45 select-none pointer-events-none"
         />
-
-        {/* Sıcak Fildişi-Beyaz Okunabilirlik Perdesi (Sağda Flu Doku Görünür Kalır) */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#FCFBFA]/96 via-[#FCFBFA]/84 to-[#F6F3EC]/50 pointer-events-none" />
         <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#FCFBFA] to-transparent pointer-events-none" />
 
-        {/* Banner İçerik */}
         <div className="relative z-10 max-w-[1380px] mx-auto">
           <div className="inline-flex items-center gap-2 text-xs text-karyag-steel-muted mb-6 bg-white/75 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-karyag-gold/25">
             <Link href="/" className="hover:text-karyag-gold-dark transition">
@@ -484,7 +496,7 @@ export default async function CorporateDetailPage({
 
           <div className="max-w-3xl space-y-5">
             <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.25em] uppercase text-karyag-gold-dark">
-              <OliveDropIcon className="w-3.5 h-3.5 text-karyag-gold"/>
+              <OliveDropIcon className="w-3.5 h-3.5 text-karyag-gold" />
               <span>{content.eyebrow}</span>
             </div>
 
@@ -542,7 +554,6 @@ export default async function CorporateDetailPage({
               </nav>
             </div>
 
-            {/* Sol Alt Zarif Vurgu Kartı */}
             <div className="hidden lg:block rounded-2xl bg-karyag-cream/80 border border-karyag-gold/25 p-5 space-y-2.5">
               <div className="text-[10px] font-bold tracking-[0.22em] uppercase text-karyag-green">
                 POLATELİ / KİLİS
@@ -556,7 +567,6 @@ export default async function CorporateDetailPage({
 
           {/* Sağ Uzun Hikâye & İçerik Akışı */}
           <div className="lg:col-span-9 space-y-10">
-            {/* Ana Hikâye Kartı */}
             <article className="bg-white rounded-3xl p-8 sm:p-12 lg:p-14 border border-stone-200/80 shadow-2xs space-y-10">
               {/* Duygusal Alıntı Bloğu */}
               <blockquote className="relative bg-karyag-ivory rounded-2xl p-6 sm:p-8 border-l-4 border-karyag-gold">
@@ -621,7 +631,7 @@ export default async function CorporateDetailPage({
                 </div>
               )}
 
-              {/* Belgelerimiz Sayfası İçin Özel Sertifika Galerisi */}
+              {/* Belgelerimiz Sayfası İçin Lightbox Sertifika Galerisi */}
               {content.certificates && (
                 <div className="pt-8 mt-8 border-t border-stone-100 space-y-6">
                   <div className="space-y-1">
@@ -633,27 +643,41 @@ export default async function CorporateDetailPage({
                     </h2>
                   </div>
 
+                  <CertificateGallery certificates={content.certificates} />
+                </div>
+              )}
+
+              {/* Tesisimiz Sayfası İçin Görsel Akış Galerisi */}
+              {slug === "tesisimiz" && (
+                <div className="pt-8 mt-8 border-t border-stone-100 space-y-6">
+                  <div className="space-y-1">
+                    <span className="text-[11px] font-bold tracking-[0.22em] uppercase text-karyag-gold-dark">
+                      ÜRETİM ALANLARIMIZDAN KARELER
+                    </span>
+                    <h2 className="font-serif font-semibold text-2xl sm:text-3xl text-karyag-steel-dark">
+                      Entegre Tesis Akışımız
+                    </h2>
+                  </div>
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    {content.certificates.map((cert) => (
-                      <div
-                        key={cert.code}
-                        className="group rounded-2xl bg-karyag-ivory p-6 border border-karyag-gold/35 hover:border-karyag-gold hover:bg-white hover:shadow-md transition-all flex items-start gap-4"
+                    {facilityPhotos.map((photo) => (
+                      <figure
+                        key={photo.src}
+                        className="group rounded-2xl overflow-hidden border border-stone-200/80 bg-karyag-ivory"
                       >
-                        <div className="w-11 h-11 rounded-xl bg-white border border-karyag-gold/40 text-karyag-green group-hover:bg-karyag-green group-hover:text-white flex items-center justify-center shrink-0 transition-colors">
-                          <FileCheck2 className="w-5 h-5" />
+                        <div className="relative aspect-[16/10] overflow-hidden">
+                          <Image
+                            src={photo.src}
+                            alt={photo.title}
+                            fill
+                            unoptimized
+                            className="object-cover group-hover:scale-105 transition-transform duration-700"
+                          />
                         </div>
-                        <div>
-                          <span className="text-[11px] font-bold tracking-widest uppercase text-karyag-gold-dark">
-                            {cert.code}
-                          </span>
-                          <h3 className="font-semibold text-sm text-karyag-steel-dark mt-0.5">
-                            {cert.name}
-                          </h3>
-                          <p className="text-xs text-karyag-steel-muted mt-1.5 leading-relaxed">
-                            {cert.scope}
-                          </p>
-                        </div>
-                      </div>
+                        <figcaption className="px-4 py-3 text-xs font-semibold text-karyag-steel-dark bg-white border-t border-stone-100">
+                          {photo.title}
+                        </figcaption>
+                      </figure>
                     ))}
                   </div>
                 </div>

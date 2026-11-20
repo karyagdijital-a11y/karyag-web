@@ -1,13 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
+import { MapPin, Phone, Mail, Leaf, ArrowUpRight } from "lucide-react";
 import OliveDropIcon from "@/components/ui/OliveDropIcon";
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Leaf,
-  ArrowUpRight,
-} from "lucide-react";
 
 const corporateFooterLinks = [
   { label: "Hakkımızda", href: "/kurumsal/hakkimizda" },
@@ -16,7 +10,10 @@ const corporateFooterLinks = [
   { label: "Kalite Politikamız", href: "/kurumsal/kalite-politikamiz" },
   { label: "Tesisimiz", href: "/kurumsal/tesisimiz" },
   { label: "Belgelerimiz", href: "/kurumsal/belgelerimiz" },
-  { label: "Çevre & Sürdürülebilirlik", href: "/kurumsal/cevre-ve-surdurulebilirlik" },
+  {
+    label: "Çevre & Sürdürülebilirlik",
+    href: "/kurumsal/cevre-ve-surdurulebilirlik",
+  },
 ];
 
 export default function Footer() {
@@ -79,7 +76,7 @@ export default function Footer() {
           </h3>
           <ul className="space-y-3.5 text-xs">
             <li>
-              <Link href="/marka-mimarimiz" className="group block">
+              <Link href="/marka-mimarimiz#karyag" className="group block">
                 <span className="font-bold text-karyag-steel-dark group-hover:text-karyag-green transition block">
                   KARYAĞ
                 </span>
@@ -89,7 +86,7 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/marka-mimarimiz" className="group block">
+              <Link href="/marka-mimarimiz#kadiva" className="group block">
                 <span className="font-bold text-karyag-steel-dark group-hover:text-karyag-gold-dark transition block">
                   KADİVA
                 </span>
@@ -99,7 +96,7 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/marka-mimarimiz" className="group block">
+              <Link href="/marka-mimarimiz#karoliva" className="group block">
                 <span className="font-bold text-karyag-steel-dark group-hover:text-karyag-green transition block">
                   KAROLİVA
                 </span>
@@ -111,6 +108,18 @@ export default function Footer() {
           </ul>
 
           <div className="mt-6 pt-4 border-t border-stone-100 space-y-2 text-xs font-medium text-karyag-steel-muted">
+            <Link
+              href="/urunler"
+              className="block hover:text-karyag-green transition"
+            >
+              Ürünler & Ambalaj
+            </Link>
+            <Link
+              href="/private-label"
+              className="block hover:text-karyag-green transition"
+            >
+              Private Label & İhracat
+            </Link>
             <Link
               href="/faaliyet-alanlarimiz"
               className="block hover:text-karyag-green transition"

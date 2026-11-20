@@ -65,9 +65,9 @@ const corporateItems = [
 ];
 
 const mainLinks = [
-  { name: "Faaliyet Alanlarımız", href: "/faaliyet-alanlarimiz" },
-  { name: "Marka Mimarimiz", href: "/marka-mimarimiz" },
-  { name: "B2B Lojistik", href: "/b2b-lojistik" },
+  { name: "Ürünler & Ambalaj", href: "/urunler" },
+  { name: "Markalarımız", href: "/marka-mimarimiz" },
+  { name: "Private Label & İhracat", href: "/private-label" },
   { name: "İletişim", href: "/iletisim" },
 ];
 
