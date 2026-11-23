@@ -49,10 +49,10 @@ const slides: HeroSlide[] = [
       "Hasat sabahının serinliğinde özenle toplanan Kilis zeytinlerinden, doğallığını ve meyvemsi aromasını koruyarak elde edilen seçkin natürel sızma koleksiyonumuz.",
     ctaText: "KADİVA’yı Keşfedin",
     ctaHref: "/marka-mimarimiz#kadiva",
-    secondaryText: "Üretim Yolculuğumuz",
-    secondaryHref: "/faaliyet-alanlarimiz",
+    secondaryText: "Ürünler & Ambalaj",
+    secondaryHref: "/urunler",
     imageSrc: "/images/mockups/kadiva-sise.jpg",
-    imageAlt: "KADİVA Natürel Sızma Zeytinyağı Şişeleri",
+    imageAlt: "KADİVA Natürel Sızma Zeytinyağı Şişesi",
   },
   {
     id: 3,
@@ -64,8 +64,8 @@ const slides: HeroSlide[] = [
       "Seçkin restoranlar, oteller ve gıda üreticileri için yüksek ısı dayanımı, berrak yapısı ve her tarifte aynı dengeli performansıyla güvenilir çözüm ortağınız.",
     ctaText: "KAROLİVA’yı Keşfedin",
     ctaHref: "/marka-mimarimiz#karoliva",
-    secondaryText: "B2B Lojistik",
-    secondaryHref: "/b2b-lojistik",
+    secondaryText: "Private Label & İhracat",
+    secondaryHref: "/private-label",
     imageSrc: "/images/mockups/karoliva-horeca.jpg",
     imageAlt: "KAROLİVA Yüksek Isıya Dayanıklı HoReCa Teneke",
   },
@@ -82,7 +82,7 @@ const slides: HeroSlide[] = [
     secondaryText: "İletişime Geçin",
     secondaryHref: "/iletisim",
     imageSrc: "/images/mockups/marka-ailesi.jpg",
-    imageAlt: "KARYAĞ Marka Ailesi: KAROLİVA ve KADİVA",
+    imageAlt: "KARYAĞ Marka Ailesi: KADİVA ve KAROLİVA",
   },
 ];
 
@@ -127,7 +127,6 @@ export default function HeroVideoSlider() {
         >
           <source src={slides[0].videoSrc} type="video/mp4" />
         </video>
-        {/* Sol yazı alanı için sinematik kontrast, sağ taraf tamamen canlı kalır */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#171512]/80 via-[#171512]/38 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#171512]/65 to-transparent" />
       </div>
@@ -212,20 +211,20 @@ export default function HeroVideoSlider() {
             </div>
           </div>
 
-          {/* Sağ: Çerçevesiz, Kesilmesiz, Zemine Eriyen Ürün Sahnesi (2-3-4. Slaytlar) */}
+          {/* Sağ: 3:2 Tam Oran, Kesilmesiz, Zemine Eriyen Ürün Sahnesi (2-3-4. Slaytlar) */}
           {!isVideoSlide && current.imageSrc && (
             <div className="lg:col-span-7 relative flex items-center justify-center">
-              <div className="relative w-full h-[340px] sm:h-[440px] lg:h-[540px] overflow-hidden">
+              <div className="relative w-full max-w-[760px] aspect-[3/2] overflow-hidden rounded-2xl">
                 <Image
                   src={current.imageSrc}
                   alt={current.imageAlt ?? current.eyebrow}
                   fill
                   priority
                   unoptimized
-                  className="object-contain object-center"
+                  className="object-cover object-center"
                 />
 
-                {/* Kenarları Zemine Eriten Yumuşak Geçiş Perdeleri (Sıfır Çerçeve) */}
+                {/* Kenarları Zemine Eriten Yumuşak Geçiş Perdeleri */}
                 <div className="absolute inset-y-0 left-0 w-16 sm:w-24 bg-gradient-to-r from-[#F3EFE7] to-transparent pointer-events-none" />
                 <div className="absolute inset-y-0 right-0 w-16 sm:w-24 bg-gradient-to-l from-[#EFE9DE] to-transparent pointer-events-none" />
                 <div className="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-[#F5F1EA] to-transparent pointer-events-none" />

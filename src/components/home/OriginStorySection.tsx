@@ -88,7 +88,7 @@ export default function OriginStorySection() {
   return (
     <section className="py-24 px-4 sm:px-8 bg-white border-t border-stone-200/70">
       <div className="max-w-[1380px] mx-auto space-y-20">
-        {/* 1. KİLİS MENŞE EDİTORYAL BLOĞU (Gaea Referansı) */}
+        {/* 1. KİLİS MENŞE EDİTORYAL BLOĞU */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Sol: Görsel Kompozisyon */}
           <div className="lg:col-span-5 relative">
@@ -168,7 +168,7 @@ export default function OriginStorySection() {
           </div>
         </div>
 
-        {/* 2. MUTFAK & KULLANIM REHBERİ (Monini Referansı) */}
+        {/* 2. MUTFAK & KULLANIM REHBERİ */}
         <div className="bg-karyag-ivory rounded-3xl p-7 sm:p-10 lg:p-12 border border-karyag-gold/30 space-y-8">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div className="space-y-2 max-w-xl">
@@ -215,13 +215,14 @@ export default function OriginStorySection() {
             key={activeTab}
             className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white rounded-2xl p-6 sm:p-8 border border-stone-200/80 animate-fade-up"
           >
-            <div className="lg:col-span-5 relative aspect-[4/3] rounded-2xl overflow-hidden bg-karyag-cream">
+            {/* 3:2 Tam Oran Görsel Kutusu */}
+            <div className="lg:col-span-5 relative aspect-[3/2] rounded-2xl overflow-hidden bg-karyag-cream">
               <Image
                 src={guide.image}
                 alt={guide.brand}
                 fill
                 unoptimized
-                className="object-cover"
+                className="object-cover object-center"
               />
             </div>
 

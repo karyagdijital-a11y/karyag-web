@@ -51,11 +51,11 @@ const brandFamily = [
     mockups: [
       {
         src: "/images/mockups/kadiva-sise.jpg",
-        caption: "Natürel Sızma Koyu Cam Şişe Serisi",
+        caption: "Natürel Sızma 500 ml Koyu Cam Şişe Serisi",
       },
       {
         src: "/images/mockups/kadiva-seri.jpg",
-        caption: "Erken Hasat Şişe & Butik Teneke Koleksiyonu",
+        caption: "Cam Şişe, Hediye Kutusu & Butik Teneke Koleksiyonu",
       },
     ],
     story: [
@@ -65,7 +65,7 @@ const brandFamily = [
     attributes: [
       "Seçkin natürel sızma ve erken hasat koleksiyonu",
       "Yüksek polifenol ve zengin meyvemsi aroma profili",
-      "Butik cam şişe ve özel teneke ambalaj estetiği",
+      "Butik cam şişe, kutu ve özel teneke ambalaj estetiği",
     ],
   },
   {
@@ -79,7 +79,7 @@ const brandFamily = [
     mockups: [
       {
         src: "/images/mockups/karoliva-teneke.jpg",
-        caption: "18L & 5L Endüstriyel ve Profesyonel Teneke Serisi",
+        caption: "5L Metal Teneke & 750 ml Cam Şişe Serisi",
       },
       {
         src: "/images/mockups/karoliva-horeca.jpg",
@@ -101,7 +101,7 @@ const brandFamily = [
 export default function MarkaMimarimizPage() {
   return (
     <div className="bg-karyag-ivory min-h-screen">
-      {/* 1. FLU EDİTORYAL BANNER (Yeni Marka Ailesi Mockupu ile) */}
+      {/* 1. FLU EDİTORYAL BANNER */}
       <section className="relative overflow-hidden border-b border-karyag-gold/30 py-20 sm:py-28 px-4 sm:px-8 bg-[#F6F3EC]">
         <img
           src="/images/mockups/marka-ailesi.jpg"
@@ -170,7 +170,7 @@ export default function MarkaMimarimizPage() {
                 <div className="p-8 sm:p-12 lg:p-14 space-y-10">
                   {/* Üst: Logo + Hikâye */}
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-                    {/* Sol: Resmi Logo Kartı */}
+                    {/* Sol: Resmi Logo Kartı (2000x2000 Kare & Yatay Uyumlu) */}
                     <div className="lg:col-span-4 bg-karyag-ivory rounded-2xl p-8 border border-karyag-gold/25 flex flex-col items-center text-center space-y-5">
                       <span
                         className={`text-[10px] font-bold tracking-[0.2em] uppercase px-3.5 py-1.5 rounded-full ${brand.badgeClass}`}
@@ -178,14 +178,16 @@ export default function MarkaMimarimizPage() {
                         {brand.role}
                       </span>
 
-                      <div className="w-full bg-white rounded-2xl border border-stone-200/70 p-6 flex items-center justify-center min-h-[140px]">
+                      <div className="w-full bg-white rounded-2xl border border-stone-200/70 px-6 py-4 flex items-center justify-center h-44">
                         <Image
                           src={brand.logo}
                           alt={`${brand.name} Resmi Logosu`}
-                          width={340}
-                          height={140}
+                          width={400}
+                          height={400}
                           unoptimized
-                          className="max-h-24 w-auto object-contain"
+                          className={`w-auto object-contain mix-blend-multiply ${
+                            brand.id === "karyag" ? "max-h-16" : "max-h-36"
+                          }`}
                         />
                       </div>
 
@@ -220,10 +222,12 @@ export default function MarkaMimarimizPage() {
                     </div>
                   </div>
 
-                  {/* Alt: 3D Ürün Mockup Galerisi */}
+                  {/* Alt: 3:2 Tam Oran Ürün Mockup Galerisi */}
                   <div
                     className={`grid grid-cols-1 ${
-                      brand.mockups.length > 1 ? "md:grid-cols-2" : ""
+                      brand.mockups.length > 1
+                        ? "md:grid-cols-2"
+                        : "max-w-4xl mx-auto"
                     } gap-6 pt-6 border-t border-stone-100`}
                   >
                     {brand.mockups.map((mockup) => (
@@ -231,13 +235,13 @@ export default function MarkaMimarimizPage() {
                         key={mockup.src}
                         className="group rounded-2xl overflow-hidden border border-stone-200/80 bg-karyag-cream/50"
                       >
-                        <div className="relative aspect-[16/10] overflow-hidden">
+                        <div className="relative aspect-[3/2] w-full overflow-hidden">
                           <Image
                             src={mockup.src}
                             alt={mockup.caption}
                             fill
                             unoptimized
-                            className="object-cover group-hover:scale-105 transition-transform duration-700"
+                            className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                           />
                         </div>
                         <figcaption className="px-5 py-3.5 bg-white border-t border-stone-100 flex items-center justify-between text-xs font-semibold text-karyag-steel-dark">
@@ -247,7 +251,7 @@ export default function MarkaMimarimizPage() {
                           </span>
                           <Link
                             href="/iletisim"
-                            className="text-karyag-gold-dark hover:text-karyag-green inline-flex items-center gap-1 transition"
+                            className="text-karyag-gold-dark hover:text-karyag-green inline-flex items-center gap-1 transition shrink-0 ml-3"
                           >
                             <span>Bilgi Al</span>
                             <ArrowRight className="w-3.5 h-3.5" />

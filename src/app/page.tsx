@@ -159,13 +159,14 @@ export default function HomePage() {
                 className={`group bg-white rounded-3xl overflow-hidden border border-stone-200/80 ${brand.accentBorder} shadow-xs hover:shadow-[0_24px_55px_-18px_rgba(30,35,38,0.14)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between`}
               >
                 <div>
-                  <div className="relative h-60 overflow-hidden bg-karyag-cream border-b border-stone-200/60">
+                  {/* 3:2 Tam Oran Mockup Alanı */}
+                  <div className="relative aspect-[3/2] w-full overflow-hidden bg-karyag-cream border-b border-stone-200/60">
                     <Image
                       src={brand.mockup}
                       alt={`${brand.name} Ürün Koleksiyonu`}
                       fill
                       unoptimized
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     />
                     <span
                       className={`absolute top-4 left-4 text-[10px] font-bold tracking-[0.16em] uppercase px-3 py-1.5 rounded-full backdrop-blur-md shadow-xs ${brand.badgeStyle}`}
@@ -175,14 +176,17 @@ export default function HomePage() {
                   </div>
 
                   <div className="p-7 sm:p-8">
-                    <div className="bg-karyag-ivory rounded-2xl border border-stone-200/70 px-5 py-4 mb-5 flex items-center justify-center h-24">
+                    {/* 2000x2000 Kare Logolar İçin Dengeli & Şeffaf Harmanı */}
+                    <div className="bg-karyag-ivory rounded-2xl border border-stone-200/70 px-5 py-3 mb-5 flex items-center justify-center h-32">
                       <Image
                         src={brand.logo}
                         alt={`${brand.name} Resmi Logosu`}
-                        width={260}
-                        height={90}
+                        width={400}
+                        height={400}
                         unoptimized
-                        className="max-h-16 w-auto object-contain"
+                        className={`w-auto object-contain mix-blend-multiply ${
+                          brand.name === "KARYAĞ" ? "max-h-14" : "max-h-28"
+                        }`}
                       />
                     </div>
 

@@ -3,16 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  ArrowRight,
-  CheckCircle2,
-  Package,
-  Droplets,
-  Sparkles,
-  Container,
-  Layers,
-  Award,
-} from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import OliveDropIcon from "@/components/ui/OliveDropIcon";
 
 type CategoryId =
@@ -36,7 +27,7 @@ type ProductItem = {
   highlights: string[];
 };
 
-const categories: { id: CategoryId; label: string; count?: number }[] = [
+const categories: { id: CategoryId; label: string }[] = [
   { id: "all", label: "Tüm Ürünler" },
   { id: "cam", label: "Cam Şişe" },
   { id: "teneke", label: "Metal Teneke" },
@@ -206,14 +197,14 @@ export default function PackagingCatalog() {
             className="group bg-white rounded-3xl overflow-hidden border border-stone-200/80 hover:border-karyag-gold shadow-2xs hover:shadow-[0_24px_55px_-18px_rgba(200,162,74,0.22)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
           >
             <div>
-              {/* Görsel Alanı */}
-              <div className="relative h-64 overflow-hidden bg-karyag-cream border-b border-stone-100">
+              {/* 3:2 Tam Oran Görsel Alanı */}
+              <div className="relative aspect-[3/2] w-full overflow-hidden bg-karyag-cream border-b border-stone-100">
                 <Image
                   src={product.image}
                   alt={product.title}
                   fill
                   unoptimized
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
 
